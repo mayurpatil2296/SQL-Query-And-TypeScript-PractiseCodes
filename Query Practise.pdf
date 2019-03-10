@@ -1,0 +1,297 @@
+1.Create DataBase Name As PractiseExa
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+2.Create Different Column Into DataBases
+Query:-
+
+CREATE TABLE PractiseExe
+(
+	RollNumber int,
+    Name varchar(255),
+    Address char(255),
+    Age int,
+    Marks int
+);
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+3.Display Schema Or Layout Of Table 
+	Query:-
+
+	DESCRIBE PractiseExe
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+4.Insert The Record Into Table 
+
+Query:-
+INSERT INTO PractiseExe Values(2,'Raj','Sai Nagar',23,20); 
+INSERT INTO PractiseExe Values(3,'Sagar','Dhayari Phata',22,30); 
+INSERT INTO PractiseExe Values(4,'Shubhas','Narhegoan',29,10); 
+INSERT INTO PractiseExe Values(1,'Rithvik','Pimpri Chinchwad',32,40); 
+INSERT INTO PractiseExe Values(5,'Ranveer','Lonavala',20,50); 
+INSERT INTO PractiseExe Values(6,'Maya','Chincholi',33,60); 
+INSERT INTO PractiseExe Values(7,'Sanjay','Karve Nagar',41,60); 
+INSERT INTO PractiseExe Values(1,'Kesari','Karve Nagar',16,80); 
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+5.Display All The Record Or You Can Display The Specific Record Using Different Query.
+For All Record:-
+	Query:-
+		Select*from PractiseExe Where 1
+		Select*from PractiseExe 
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+6.For Specific Column:-
+	Query:-
+		Select age From PractiseExe
+		Select city From PractiseExe
+		Select Address From PractiseExe
+		Select age From PractiseExe where Name='Raj'	//Condition
+----------------------------------------------------------------------------------------------------------------------------------
+
+7.Display All Student From Table Whose age is 22
+Qyery:-
+	Select*from PractiseExe Where Age=22
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+8.Display All Student From Table Whose Address iS 'Karve Nagar'
+Query:-
+
+	Select*from PractiseExe Where Address='Karve Nagar'
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+9.Display All Student From Table Whose Marks Are 10
+Qyery:-
+
+	Select*from PractiseExe Where Marks=30
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+10.Display only Names And Age Of Student Whose Age Is Greater Than 22
+Query:-
+	SELECT Name,Age From PractiseExe Where Age>22
+
+----------------------------------------------------------------------------------------------------------------------------------	
+
+11.Display Only Name And Age Whose Mark>22 And Address iS Karve Nagar
+Query:-
+SELECT Name,Age From PractiseExe Where Age>22 AND Address='Karve Nagar'
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+12.Update The Address From Table Whos Address Is 'Karve Nagar'
+Query:-
+
+	UPDATE PractiseExe 
+	Set Address="Satara" where Address='Karve Nagar'
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+13.Display The Content Of Table Order By Names
+Query:-
+
+	SELECT Name From PractiseExe ORDER BY Name
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+14.Display The Content Of Table in Descending Order By There Marks Whos Live In 'Karve Nagar'
+
+Query:-	
+	SELECT*FROM PractiseExe Where Address='Karve Nagar' Order By Marks DESC;
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+15.Display The Content Of Table in Descending Order By There Marks Whos Live In 'Karve Nagar' And age>22
+Query:-
+SELECT*FROM PractiseExe Where Address='Karve Nagar'AND Age>22 Order By Marks DESC
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+16.Display All Information The Information Whos Name Is Sagar
+Query:-
+	Select*From PractiseExe Where Name='Sagar'
+
+----------------------------------------------------------------------------------------------------------------------------------
+17.Display All Name OF Student Whos Age Is Greater Than 22 And Live In Karve Nagar
+Query:-
+
+	Select Name From PractiseExe Where Address='Karve Nagar' AND Age>22
+
+----------------------------------------------------------------
+18.Display Name OF Address From PractiseExe Table
+Query:-
+
+	select Distinct Address From PractiseExe
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+19.Display First 5 Record in Table
+
+Query:-
+
+	Select*from PractiseExe Limit 5;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+	
+20.Display All Highest Marks From Table
+Query:-
+
+	Select MAX(Marks)From PractiseExe 
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+21.Display All Name Which Are Started From 'S' from Table
+
+Query:-
+
+	Select Name From PractiseExe Where Name Like 's%'
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+22.Count Number Of Student Whos Live Satara From Table
+query:-
+	Select Count(Name)From PractiseExe Where Address='Satara'
+----------------------------------------------------------------------------------------------------------------------------------
+
+23.Select Number Of Student In Each City
+
+Query:-
+	SELECT Address,Count(Address) From PractiseExe Group By Address
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+24.Display Average Mark Of Student In Each City
+
+Query:-
+
+	Select Address,AVG(marks) From PractiseExe Group By Address
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+25.Display Student Marks Which is Greater Than 45 And Name Whos Student Name Start from 'R'
+Query:-
+	Select*From PractiseExe Where Name LIKE '%R'AND Marks>45
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+26.Display Student Name Which Is Second Maximum Mark.
+
+Query:-
+
+Select Name,Max(Marks) From PractiseExe Where Marks<(Select Max(Marks) From PractiseExe)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+27.Display Total Number Of Student In Each Cities
+Query:-
+
+	SELECT Address,COUNT(Name) From PractiseExe Group BY Address
+
+---------------------------------------------------------------------------------------------------------------------------------- 
+
+28.Display Total Number Of Student Of Each Group
+Query:-
+
+	select Age,count(age)from PractiseExe group by age
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+29.Display Details Of Student Having Lowest Detail
+Query:-
+	Select Name,Age,Marks,Min(Marks) From PractiseExes
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+30.Display Number Of Cities From Table Which Cities Have The More Than One Student
+//Group Clause Can Not Be Used With WHERE Clause Why HAVING Clause Are Came HAVING Clause Are Used With GROUP Clause
+Query:-
+
+	Select Address,Count(Name) From PractiseExe Group By Address Having Count(Name)>1
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+31.Display All Name Is Table Which Name Consisit Only Four Letter.
+Query:-
+	SELECT Name froM PractiseExe Where Name LIKE '_____'	//_ _ _ _
+	SELECT Name froM PractiseExe Where Name LIKE 'K_____'	//After K Its Identify And Display Entire Name.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+32.Display The Maximum Marks Obtained Marks In Each city
+Query:-
+	Select Address,Marks,Max(Marks) from PractiseExe Group By Address
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+33.Display All Student Name Whose age Is In Between 22 to 30
+Query:-
+
+	1.Select Age,Name From PractiseExe Where Age Between 22 AND 30
+	2.Select Age,Name From PractiseExe Where Age>=25 AND Age<=30
+
+----------------------------------------------------------------------------------------------------------------------------------
+	 
+34.Display The Content Of Table in Asceding And Descending Order By There Marks
+	Query:-
+		Select*from PractiseExe Order By Age DESC	//Descending Order
+		Select*from PractiseExe Order By Age Asc	//Ascending Order
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+35.Increase The Marks Of Student by 15% Where Name Is Rithvik
+Query:-
+		Update PractiseExe
+		set Marks=Marks*1.15 where Name='Rithvik'
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+36.Increase The Marks Of Student By 10Marks Whose Student Is Live In Satara And Lonavala
+Query:-
+
+		Update PractiseExe
+		set Marks=Marks+10
+		Where Address='Satara' AND Address='Lonavala'
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+37.Display All Student All Information Detail Except Satara Student
+
+Query:-
+	Select*from PractiseExe Where Address NOT IN("Satara")
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+38.Display All Information Of Student Whose Lives In Satara And Lonavala
+
+Query:-
+	Select*From PractiseExe Where Address IN('Satara','Lonavala')		
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+39.Display All The Content Name In LowerCase Format
+
+Query:-
+	Select LCase(Name) From PractiseExe
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+40.Display All The Content Name In UpperCase Format
+
+Query:-
+	Select ucase(Name) From PractiseExe			//Ucase/Lcase Method Case Insensitive
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
